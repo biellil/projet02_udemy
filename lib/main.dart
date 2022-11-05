@@ -1,9 +1,10 @@
 import 'dart:math';
 import 'dart:io';
+
 import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-// ignore: duplicate_import
+
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'components/chart.dart';
@@ -22,7 +23,7 @@ class ExpensesApp extends StatelessWidget {
       theme: tema.copyWith(
         colorScheme: tema.colorScheme.copyWith(
           primary: Color.fromARGB(255, 0, 0, 0),
-          secondary: Color.fromARGB(255, 102, 6, 94),
+          secondary: Colors.purple,
         ),
         textTheme: tema.textTheme.copyWith(
           headline6: const TextStyle(
@@ -98,9 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _getIconButton(IconData icon, Function() fn) {
-    return Platform.isIOS
-        ? GestureDetector(onTap: fn, child: Icon(icon))
-        : IconButton(icon: Icon(icon), onPressed: fn);
+    return Platform.isIOS ? GestureDetector(onTap: fn, child: Icon(icon)) : IconButton(icon: Icon(icon), onPressed: fn);
   }
 
   @override
@@ -109,8 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
     bool isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     final iconList = Platform.isIOS ? CupertinoIcons.refresh : Icons.list;
-    final chartList =
-        Platform.isIOS ? CupertinoIcons.refresh : Icons.show_chart;
+    final chartList = Platform.isIOS ? CupertinoIcons.refresh : Icons.show_chart;
 
     final actions = [
       if (isLandscape)
@@ -133,9 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
       actions: actions,
     );
 
-    final availableHeight = mediaQuery.size.height -
-        appBar.preferredSize.height -
-        mediaQuery.padding.top;
+    final availableHeight = mediaQuery.size.height - appBar.preferredSize.height - mediaQuery.padding.top;
 
     final bodyPage = SafeArea(
       child: SingleChildScrollView(
@@ -193,8 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Icon(Icons.add),
                     onPressed: () => _openTransactionFormModal(context),
                   ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerFloat,
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           );
   }
 }

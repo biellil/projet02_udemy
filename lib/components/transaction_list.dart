@@ -6,8 +6,7 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final void Function(String) onRemove;
 
-  const TransactionList(this.transactions, this.onRemove, {Key? key})
-      : super(key: key);
+  const TransactionList(this.transactions, this.onRemove, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

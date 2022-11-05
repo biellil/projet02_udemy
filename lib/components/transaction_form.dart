@@ -50,8 +50,7 @@ class _TransactionFormState extends State<TransactionForm> {
               AdaptativeTextField(
                 label: 'Valor (R\$)',
                 controller: _valueController,
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 onSubmitted: (_) => _submitForm,
               ),
               AdaptativeDatePicker(
